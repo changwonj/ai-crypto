@@ -67,7 +67,7 @@ def create_features_df(orderbook):
     return df_features
 
 # get list of filenames
-filenames = next(walk("./"), (None, None, []))[2]
+filenames = next(walk("../Project 1"), (None, None, []))[2]
 
 # match filenames to regex pattern for orderbook csv files
 pattern = r'^book.*\.csv$'
@@ -77,7 +77,7 @@ regex = re.compile(pattern)
 orderbooks = [filename for filename in filenames if regex.match(filename)]
 
 for orderbook in orderbooks:
-    df_features = create_features_df(orderbook)
+    df_features = create_features_df(f"../Project 1/{orderbook}")
     
     pattern = r'^book-(\d{4}-\d{2}-\d{2})-([^-]+-[^.]+)\.csv$'
 
